@@ -39,6 +39,24 @@ def mostrar_menu():
 def menu_del_ticket():
     print("---Tipo de ticket")
     print("1. Software\n2. Hardware\n3. Red\n4. Salir")
-    tipo=int(input("> "))
+    tipo=input("> ")
     asunto=input("Ingresa el asunto: ")
     prioridad=input("Ingresa la prioridad: ")
+
+    if tipo == "1":
+        return Ticketsoftware(asunto, prioridad)
+    elif tipo=="2":
+        return Tickethardware(asunto, prioridad)
+    elif tipo=="3":
+        return Ticketred(asunto, prioridad)
+    else:
+        print("Tipo de ticket no valido")
+        return None
+
+tickets=[]
+
+while True:
+    mostrar_menu()
+    op=input("> ")
+    if op=="1":
+        menu_del_ticket()
