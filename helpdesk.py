@@ -29,7 +29,4 @@ class prioridadticket(ticket):
     
 while True:
     print("--- HelpDesk ---")
-    print("1. Crear ticket" \
-    "2. Cambiar estado" \
-    "3. Mostrar resumen" \
-    "Salir")
+    print("1. Crear ticket\n2. Cambiar estado\n3. Mostrar resumen\n4. Salir")
