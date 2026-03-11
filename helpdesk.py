@@ -13,6 +13,8 @@ class ticket:
             return "Error estado no valido"
     def verificar(self):
         return "Resolución genérica del ticket"
+    def mostrarresumen(self):
+        print(f"Ausunto: {self.asunto} | Prioridad: {self.prioridad} | {self.verestado()}")
 
 class Ticketsoftware(ticket):
     def verificar(self):
@@ -38,7 +40,7 @@ def mostrar_menu():
     print("1. Crear ticket\n2. Cambiar estado\n3. Mostrar resumen\n4. Salir")
 def menu_del_ticket():
     print("---Tipo de ticket")
-    print("1. Software\n2. Hardware\n3. Red\n4. Salir")
+    print("1. Software\n2. Hardware\n3. Red")
     tipo=input("> ")
     asunto=input("Ingresa el asunto: ")
     prioridad=input("Ingresa la prioridad: ")
@@ -59,4 +61,27 @@ while True:
     mostrar_menu()
     op=input("> ")
     if op=="1":
-        menu_del_ticket()
+        t = menu_del_ticket()
+        tickets.append(t)
+        print("Ticket creado")
+    elif op=="2":
+        if not tickets:
+            print("No hay tickets registados")
+        else:
+            for i, t in enumerate(tickets):
+                print(i, t.asunto(), t.verestado())
+            try:
+                idex=int(input("Sleccione el ticket"))
+                nuevo_estado=input("Nuevo estado del ticket(Abierto, En_tramite, Cerrado)")
+                tickets[idex].cambiar_estado(nuevo_estado)
+                print("Se ha cambiado el estado del ticket ☑️")
+            except:
+                print("❗(Error) ticket no actualizado")
+    elif op=="3":
+        if not ticket:
+            print("No hay tickets")
+        else:
+            print("---Resumen---\n")
+            for ticket in tickets:
+                print(ticket.mostrarresumen())
+           
