@@ -106,5 +106,8 @@ while True: #bucle principal del programa
                 print(f"{i+1}. {m.mostrarinfo()}")
             print("\nPresione Enter para continuar ➡️")
             input("...")
+    elif opc == "5":
+        print("\n❗ Saliendose del programa...\n")
+        break
     else:
         print("\nOpcion no valida ❗")
